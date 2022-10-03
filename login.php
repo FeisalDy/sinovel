@@ -41,12 +41,17 @@ if(isset($_POST['login'])){
           $_SESSION['level'] = "user2";
           // alihkan ke halaman dashboard pegawai
           header("location:index.php");
-      
         // cek jika user login sebagai pengurus
-        }else if($user['level']=="3"){
+        }else if($user['user_level']=="3"){
           // buat session login dan username
           $_SESSION['username'] = $username;
           $_SESSION['level'] = "user3";
+          // alihkan ke halaman dashboard pengurus
+          header("location:index.php");
+        }else if($user['user_level']>="10"){
+          // buat session login dan username
+          $_SESSION['username'] = $username;
+          $_SESSION['level'] = "admin";
           // alihkan ke halaman dashboard pengurus
           header("location:index.php");;
         }

@@ -38,6 +38,13 @@
             <a class="nav-link" href="#">Novels</a>
             </li>
             <?php 
+            if(isset($_SESSION['level']) && $_SESSION['level'] = "admin"): ?>
+            <li class="nav-item">
+            <a class="nav-link" href="input_novel.php">Input Novels</a>
+            </li>
+            <?php endif; ?>
+
+            <?php 
             if(isset($_SESSION['level']) && !empty($_SESSION['level'])): ?>
                 <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -57,7 +64,6 @@
             <a class="nav-link" href="register.php">Register</a>
             </li>
             <?php endif; ?>
-            
         </ul>
         </div>
     </div>
