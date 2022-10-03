@@ -13,7 +13,7 @@
     <title>SiNovel</title>
     <style>
         .masthead {
-        min-height: 500px;
+        height: 600px;
         background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
         background-size: cover;
         background-position: center;
@@ -32,10 +32,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto">
             <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Novels</a>
+            <a class="nav-link" href="novels.php">Novels</a>
             </li>
             <?php 
             if(isset($_SESSION['level']) && $_SESSION['level'] = "admin"): ?>
