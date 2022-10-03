@@ -32,7 +32,7 @@ if(isset($_POST['register'])){
 }
 ?>
 
-<div class="container w-50 p-3" style="margin-top: 10%;">
+<div class="container w-50 p-3" style="margin-top: ;">
 <form action="" method="POST">
   <div class="form-outline mb-4">
     <label class="form-label d-flex justify-content-start" for="form2Example1">Username</label>

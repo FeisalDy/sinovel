@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  echo $_SESSION['level'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,22 +37,27 @@
             <li class="nav-item">
             <a class="nav-link" href="#">Novels</a>
             </li>
-            <li class="nav-item">
-            <a class="nav-link" href="register.php">Register</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="login.php">Login</a>
-            </li>
-            <li class="nav-item dropdown">
+            <?php 
+            if(isset($_SESSION['level']) && !empty($_SESSION['level'])): ?>
+                <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Account
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                 <li><a class="dropdown-item" href="#">Action</a></li>
                 <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="controller/logout.php">Logout</a></li>
             </ul>
             </li>
+            <?php else: ?>
+            <li class="nav-item">
+            <a class="nav-link" href="login.php">Login</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="register.php">Register</a>
+            </li>
+            <?php endif; ?>
+            
         </ul>
         </div>
     </div>

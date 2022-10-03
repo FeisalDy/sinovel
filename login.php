@@ -24,11 +24,32 @@ if(isset($_POST['login'])){
     if($user){
         // verifikasi password  
         if(password_verify($password, $user['user_password'])){
-            // buat Session
-            session_start();
-            $_SESSION["user"] = $user;
-            // login sukses, alihkan ke halaman timeline
-            header("Location: index.php");
+
+        // cek jika user login sebagai admin
+        if($user['user_level']=="1"){
+      
+          // buat session login dan username
+          $_SESSION['username'] = $username;
+          $_SESSION['level'] = "user1";
+          // alihkan ke halaman dashboard admin
+          header("location:index.php");
+      
+        // cek jika user login sebagai pegawai
+        }else if($user['user_level']=="2"){
+          // buat session login dan username
+          $_SESSION['username'] = $username;
+          $_SESSION['level'] = "user2";
+          // alihkan ke halaman dashboard pegawai
+          header("location:index.php");
+      
+        // cek jika user login sebagai pengurus
+        }else if($user['level']=="3"){
+          // buat session login dan username
+          $_SESSION['username'] = $username;
+          $_SESSION['level'] = "user3";
+          // alihkan ke halaman dashboard pengurus
+          header("location:index.php");;
+        }
         }else{
         }
     }
@@ -36,7 +57,7 @@ if(isset($_POST['login'])){
 
 ?>
 
-<div class="container w-50 p-3" style="margin-top: 10%;">
+<div class="container w-50 p-3" style="margin-top: ;">
 <form action="" method="POST">
   <!-- Email input -->
   <div class="form-outline mb-4">
