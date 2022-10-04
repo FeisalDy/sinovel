@@ -30,7 +30,7 @@ include('config/db.php');
 				<th width="55%">Keterangan</th>
 			</tr>
 			<?php
-
+			
 			$limit = 5;
 			$nRows = $db->query("SELECT count(*) from novels")->fetchColumn();
 			$total_pages = ceil($nRows / $limit);
