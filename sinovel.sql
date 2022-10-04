@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2022 at 04:11 AM
+-- Generation Time: Oct 04, 2022 at 05:28 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -20,6 +20,34 @@ SET time_zone = "+00:00";
 --
 -- Database: `sinovel`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `novels`
+--
+
+CREATE TABLE `novels` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `keterangan` text NOT NULL,
+  `created_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `novels`
+--
+
+INSERT INTO `novels` (`id`, `title`, `image`, `keterangan`, `created_date`) VALUES
+(1, 'asdas', '6815121_download.png', 'dasdas', '2022-10-04 01:24:36'),
+(2, 'asdasdasdasd', '1711601298_kisspng-logo-brand-line-book-top-view-5b246b0961df60.4461820515291133534009.jpg', 'asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd', '2022-10-04 01:24:48'),
+(5, 'asdasd', '579294842_Untitled (20 × 40 cm) (40 × 20 cm).png', 'asdasd', '2022-10-04 01:33:35'),
+(6, 'haha', '720376683_download.png', 'haha', '2022-10-04 01:35:14'),
+(8, 'sdfdsfds', '1444036707_download (1).png', 'fffsdf', '2022-10-04 01:43:48'),
+(10, 'asdasdas', '1780037217_download (1).png', 'dasdsssss', '2022-10-04 02:16:42'),
+(11, '7', '855779797_kisspng-logo-brand-line-book-top-view-5b246b0961df60.4461820515291133534009.jpg', '7', '2022-10-04 02:51:13'),
+(12, '8', '964624740_kisspng-logo-brand-line-book-top-view-5b246b0961df60.4461820515291133534009.jpg', '8', '2022-10-04 02:51:19');
 
 -- --------------------------------------------------------
 
@@ -51,6 +79,13 @@ INSERT INTO `tbl_users` (`user_id`, `user_name`, `user_email`, `user_password`, 
 --
 
 --
+-- Indexes for table `novels`
+--
+ALTER TABLE `novels`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `title` (`title`);
+
+--
 -- Indexes for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
@@ -60,6 +95,12 @@ ALTER TABLE `tbl_users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `novels`
+--
+ALTER TABLE `novels`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbl_users`
