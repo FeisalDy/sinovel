@@ -41,7 +41,7 @@ if(!in_array($ext,$ekstensi) ) {
 }
 ?>
 
-<div class="container w-50 p-3" style="margin-top: ;">
+<div class="container w-50 p-3" style="margin-top: 10%;">
 <form action="" method="POST" enctype="multipart/form-data">
   <div class="form-outline mb-4">
     <label class="form-label d-flex justify-content-start" for="form2Example1">Image</label>

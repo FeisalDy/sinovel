@@ -62,7 +62,7 @@ if(isset($_POST['login'])){
 
 ?>
 
-<div class="container w-50 p-3" style="margin-top: ;">
+<div class="container w-50 p-3" style="margin-top: 10% ;">
 <form action="" method="POST">
   <!-- Email input -->
   <div class="form-outline mb-4">
