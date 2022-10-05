@@ -1,27 +1,34 @@
 <?php
 include('header.php');
 include('config/db.php');
+if(!ISSET($_POST['cari'])){
 ?>
 
 <div class="container w-100 p-3" style="margin-top: 5%;">
 
-<div class="d-grid gap-2 d-md-block">
-  <button class="btn btn-primary" type="button">Edit</button>
-  <div class="input-group">
-  <div class="form-outline">
-    <input id="search-focus" type="search" id="form1" class="form-control" />
-    <label class="form-label" for="form1">Search</label>
-  </div>
-  <button type="button" class="btn btn-primary">
-    <i class="fas fa-search"></i>
-  </button>
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div style="width: 600px; display: table-cell;"> 
+		<form action="edit_novel.php">
+		<button class="btn btn-primary" name="edit" type="submit">Edit</button>
+		</form>
+		</div>
+        <div style="display: table-cell;"> 
+		<form method="post" action="">
+		<div class="input-group rounded">
+			<input type="text" class="form-control rounded" name="keyword" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+			<span class="input-group-text border-0" id="search-addon">
+			<button class="btn btn-primary" type="submit" name="cari">Search</button>
+			</span>
+			</div>
+		</form>
+		</div>
+    </div>
 </div>
+
 </div>
-		<br>
-		<br>
+	<br>
 		<div class="row height d-flex justify-content-end align-items-end">
-
-
         <div style="overflow:auto;">
 		<table class="table table-bordered" style=" word-wrap: break-word; width: 100%; table-layout: fixed;">
 			<tr>
@@ -29,6 +36,7 @@ include('config/db.php');
 				<th width="30%">Title</th>
 				<th width="55%">Keterangan</th>
 			</tr>
+
 			<?php
 			
 			$limit = 5;
@@ -82,6 +90,66 @@ include('config/db.php');
 		</nav>
 	</div>
 </div>
+
+<?php
+}else{?>
+
+<div class="container w-100 p-3" style="margin-top: 5%;">
+
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div style="width: 600px; display: table-cell;">
+		<form action="edit_novel.php">
+		<button class="btn btn-primary" name="edit" type="submit">Edit</button>
+		</form>
+		</div>
+        <div style="display: table-cell;"> 
+		<form method="post" action="">
+		<div class="input-group rounded">
+			<input type="text" class="form-control rounded" name="keyword" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+			<span class="input-group-text border-0" id="search-addon">
+			<button class="btn btn-primary" type="submit" name="cari">Search</button>
+			</span>
+			</div>
+		</form>
+		</div>
+    </div>
+</div>
+
+</div>
+	<br>
+		<div class="row height d-flex justify-content-end align-items-end">
+        <div style="overflow:auto;">
+		<table class="table table-bordered" style=" word-wrap: break-word; width: 100%; table-layout: fixed;">
+			<tr>
+                <th width="15%">Image</th>
+				<th width="30%">Title</th>
+				<th width="55%">Keterangan</th>
+			</tr>
+
+			<?php
+			$keyword = $_POST['keyword'];
+            $sql = "SELECT * FROM novels where title LIKE '%$keyword%' or keterangan LIKE '%$keyword%'";
+            $stmt = $db->prepare($sql);
+            $stmt->execute();
+
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+				<tr>
+                    <td><img src="resources/images/<?php echo $row['image'] ?>" width="150" height="140"></td>
+					<td><?php echo $row['title']; ?></td>
+					<td><?php echo $row['keterangan']; ?></td>
+				</tr>
+				<?php
+            }
+			?>
+		</table>
+	</div>
+</div>
+
+<?php
+	}
+?>
 
 <?php
 include('footer.php');
