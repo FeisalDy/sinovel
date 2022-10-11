@@ -8,11 +8,6 @@ if(!ISSET($_POST['cari'])){
 
 <div style="width: 100%; display: table;">
     <div style="display: table-row">
-        <div style="width: 600px; display: table-cell;"> 
-		<form action="edit_novel.php">
-		<button class="btn btn-primary" name="edit" type="submit">Edit</button>
-		</form>
-		</div>
         <div style="display: table-cell;"> 
 		<form method="post" action="">
 		<div class="input-group rounded">
@@ -33,8 +28,9 @@ if(!ISSET($_POST['cari'])){
 		<table class="table table-bordered" style=" word-wrap: break-word; width: 100%; table-layout: fixed;">
 			<tr>
                 <th width="15%">Image</th>
-				<th width="30%">Title</th>
-				<th width="55%">Keterangan</th>
+				<th width="20%">Title</th>
+				<th width="50%">Keterangan</th>
+				<th width="15%">Aksi</th>
 			</tr>
 
 			<?php
@@ -66,6 +62,16 @@ if(!ISSET($_POST['cari'])){
                     <td><img src="resources/images/<?php echo $row['image'] ?>" width="150" height="140"></td>
 					<td><?php echo $row['title']; ?></td>
 					<td><?php echo $row['keterangan']; ?></td>
+					<?php
+					 if(isset($_SESSION['level']) && $_SESSION['level'] = "admin"): ?>
+						<td>
+						<form action="edit_novel.php">
+							<button class="btn btn-primary" name="edit" type="submit">Edit</button>
+						</form>
+						<form action="hapus.php">
+							<button class="btn btn-primary" name="hapus" type="submit">Delete</button>
+						</form>
+						<?php endif; ?>
 				</tr>
 				<?php
             }
@@ -98,11 +104,6 @@ if(!ISSET($_POST['cari'])){
 
 <div style="width: 100%; display: table;">
     <div style="display: table-row">
-        <div style="width: 600px; display: table-cell;">
-		<form action="edit_novel.php">
-		<button class="btn btn-primary" name="edit" type="submit">Edit</button>
-		</form>
-		</div>
         <div style="display: table-cell;"> 
 		<form method="post" action="">
 		<div class="input-group rounded">
