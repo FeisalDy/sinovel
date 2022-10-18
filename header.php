@@ -11,15 +11,6 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <title>SiNovel</title>
-    <style>
-        .masthead {
-        height: 600px;
-        background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -38,7 +29,7 @@
             <a class="nav-link" href="novels.php">Novels</a>
             </li>
             <?php 
-            if(isset($_SESSION['level']) && $_SESSION['level'] = "admin"): ?>
+            if(isset($_SESSION['level']) && $_SESSION['level'] == "admin"): ?>
             <li class="nav-item">
             <a class="nav-link" href="input_novel.php">Input Novels</a>
             </li>
@@ -70,7 +61,5 @@
     </nav>
 
     <!-- Full Page Image Header with Vertically Centered Content -->
-    <header class="masthead">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
-        <div class="col-12 text-center">
+    <div class="container" >
+        <div class="col-12">

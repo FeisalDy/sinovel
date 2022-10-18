@@ -48,7 +48,7 @@ if(isset($_POST['login'])){
           $_SESSION['level'] = "user3";
           // alihkan ke halaman dashboard pengurus
           header("location:index.php");
-        }else if($user['user_level']>="10"){
+        }else if($user['user_level']=="10"){
           // buat session login dan username
           $_SESSION['username'] = $username;
           $_SESSION['level'] = "admin";
@@ -62,7 +62,7 @@ if(isset($_POST['login'])){
 
 ?>
 
-<div class="container w-50 p-3" style="margin-top: ;">
+<div class="container w-50 p-3" style="margin-top: 10% ;">
 <form action="" method="POST">
   <!-- Email input -->
   <div class="form-outline mb-4">

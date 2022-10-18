@@ -2,7 +2,7 @@
 include('header.php');
 include('config/db.php');
 
-if(isset($_POST['upload'])){
+if(isset($_POST['edit'])){
 $title = $_POST['title'];
 $keterangan = $_POST['keterangan'];
  
@@ -13,7 +13,7 @@ $ukuran = $_FILES['image']['size'];
 $ext = pathinfo($filename, PATHINFO_EXTENSION);
  
 if(!in_array($ext,$ekstensi) ) {
-	header("location:input_novel.php?alert=gagal_ekstensi");
+	header("location:edit_novel.php?alert=gagal_ekstensi");
 }else{
 	if($ukuran < 1044070){		
 		$xx = $rand.'_'.$filename;
@@ -33,9 +33,9 @@ if(!in_array($ext,$ekstensi) ) {
         // eksekusi query untuk menyimpan ke database
         $saved = $stmt->execute($params);
 
-		if($saved) header("Location: input_novel.php?alert=berhasil");
+		if($saved) header("Location: edit_novel.php?alert=berhasil");
 	}else{
-		header("location:input_novel.php?alert=gagal_ukuran");
+		header("location:edit_novel.php?alert=gagal_ukuran");
 	}
 }
 }
@@ -62,7 +62,7 @@ if(!in_array($ext,$ekstensi) ) {
 
   <!-- Submit button -->
   <div class="d-flex justify-content-end">
-    <input type="submit" class="btn btn-primary btn-block mb-4" name="upload" value="Upload" />
+    <input type="submit" class="btn btn-primary btn-block mb-4" name="edit" value="Edit" />
   </div>
 </form>
 </div>
