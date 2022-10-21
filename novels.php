@@ -62,6 +62,7 @@ if(!ISSET($_POST['cari'])){
                     <td><img src="resources/images/<?php echo $row['image'] ?>" width="150" height="140"></td>
 					<td><?php echo $row['title']; ?></td>
 					<td><?php echo $row['keterangan']; ?></td>
+<<<<<<< HEAD
 					
 
 					<?php
@@ -74,6 +75,16 @@ if(!ISSET($_POST['cari'])){
 						<form method="get" action="controller/hapus.php">
 							<button class="btn btn-primary" type="submit">Delete</button>
 							<input type="hidden" name="id" value="<?php echo $row['id'];?>">
+=======
+					<?php
+					 if(isset($_SESSION['level']) && $_SESSION['level'] = "admin"): ?>
+						<td>
+						<form action="edit_novel.php">
+							<button class="btn btn-primary" name="edit" type="submit">Edit</button>
+						</form>
+						<form action="hapus.php">
+							<button class="btn btn-primary" name="hapus" type="submit">Delete</button>
+>>>>>>> 305e2d9fea421d6229e448dc017e52e7bc6b5871
 						</form>
 						<?php endif; ?>
 				</tr>
